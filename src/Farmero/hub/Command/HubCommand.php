@@ -12,6 +12,8 @@ use pocketmine\player\Player;
 
 use Farmero\hub\Hub;
 
+use Farmero\hub\Task\HubTask;
+
 class HubCommand extends Command
 {
     public function __construct()
