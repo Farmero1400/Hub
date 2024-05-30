@@ -16,7 +16,7 @@ class Hub extends PluginBase
     public function onEnable(): void
     {
         self::$main = $this;
-        $this->saveDefaultConfig;
+        $this->saveDefaultConfig();
         $this->getServer()->getCommandMap()->register("Hub", new HubCommand());
     }
 
