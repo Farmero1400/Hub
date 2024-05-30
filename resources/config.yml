@@ -1,10 +1,12 @@
 # "COMMAND:DESCRIPTION"
-command: "hub:Teleport back to the hub"
-command_aliases: ["spawn", "lobby"]
-
-delay: 10
-
-prefix: "§f[§eHUB§f] "
-cancel: "{prefix}Teleportation has been canceled!"
-cooldown: "{prefix}You will be teleported in §e{time}§f seconds!"
-teleportation: "{prefix}You have been teleported to the hub!"
+command: "hub:Teleport to the hub"
+command_aliases: []
+sethub_command: "sethub:Set the hub location"
+sethub_command_aliases: []
+prefix: "[Hub]"
+teleportation: "You have been teleported to the hub."
+sethub_success: "Hub location set successfully."
+no_hub_set: "Hub location has not been set."
+cancel: "Teleportation canceled."
+cooldown: "Teleporting in {time} seconds."
+delay: 5
