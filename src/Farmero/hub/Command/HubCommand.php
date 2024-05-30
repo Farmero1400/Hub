@@ -34,7 +34,7 @@ class HubCommand extends Command
                 $sender->sendTip(Hub::getConfigReplace("teleportation"));
             } else {
                 $sender->getEffects()->add(new EffectInstance(VanillaEffects::BLINDNESS(), 20 * (Hub::getConfigValue("delay") + 2), 10));
-                new SpawnTask($sender);
+                new HubTask($sender);
             }
         }
     }
