@@ -1,0 +1,9 @@
+name: Hub
+version: 1.0.0
+author: Farmero
+api: 5.0.0
+main: Farmero\hub\Hub
+
+permissions:
+  hub.cmd:
+    default: true

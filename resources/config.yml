@@ -1,0 +1,10 @@
+# "COMMAND:DESCRIPTION"
+command: "hub:Teleport back to the hub"
+command_aliases: ["spawn", "lobby"]
+
+delay: 10
+
+prefix: "§f[§eHUB§f] "
+cancel: "{prefix}Teleportation has been canceled!"
+cooldown: "{prefix}You will be teleported in §e{time}§f seconds!"
+teleportation: "{prefix}You have been teleported to the hub!"
