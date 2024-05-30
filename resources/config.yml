@@ -3,10 +3,10 @@ command: "hub:Teleport to the hub"
 command_aliases: []
 sethub_command: "sethub:Set the hub location"
 sethub_command_aliases: []
-prefix: "[Hub]"
-teleportation: "You have been teleported to the hub."
-sethub_success: "Hub location set successfully."
-no_hub_set: "Hub location has not been set."
-cancel: "Teleportation canceled."
-cooldown: "Teleporting in {time} seconds."
+prefix: "[Hub] "
+teleportation: "{prefix}You have been teleported to the hub."
+sethub_success: "{prefix}Hub location set successfully."
+no_hub_set: "{prefix}Hub location has not been set."
+cancel: "{prefix}Teleportation canceled."
+cooldown: "{prefix}Teleporting in {time} seconds."
 delay: 5
