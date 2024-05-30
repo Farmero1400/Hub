@@ -7,3 +7,5 @@ main: Farmero\hub\Hub
 permissions:
   hub.cmd:
     default: true
+  hub.sethub:
+    default: op
