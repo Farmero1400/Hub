@@ -23,6 +23,7 @@ class Hub extends PluginBase
         
         $this->getServer()->getCommandMap()->register("Hub", new HubCommand());
         $this->getServer()->getCommandMap()->register("SetHub", new SetHubCommand());
+        $this->loadHubLocation();
     }
 
     public static function getConfigReplace(string $path, array $replace = [], array $replacer = []): string
