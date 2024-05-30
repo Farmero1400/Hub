@@ -36,23 +36,9 @@ class HubCommand extends Command
             return false;
         }
 
-        if ($sender->hasPermission("hub.cmd")) {
-            $this->teleportToHub($sender);
-        } else {
-            $sender->getEffects()->add(new EffectInstance(VanillaEffects::BLINDNESS(), 20 * (Hub::getConfigValue("delay") + 2), 10));
-            new HubTask($sender);
-        }
-        return true;
-    }
+        $sender->getEffects()->add(new EffectInstance(VanillaEffects::BLINDNESS(), 20 * (Hub::getConfigValue("delay") + 2), 10));
+        new HubTask($sender);
 
-    private function teleportToHub(Player $player): void
-    {
-        $hubLocation = Hub::getInstance()->getHubLocation();
-        if ($hubLocation !== null) {
-            $player->teleport($hubLocation);
-            $player->sendTip(Hub::getConfigReplace("teleportation"));
-        } else {
-            $player->sendMessage(Hub::getConfigReplace("no_hub_set"));
-        }
+        return true;
     }
 }
