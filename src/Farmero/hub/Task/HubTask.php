@@ -8,7 +8,6 @@ use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\scheduler\Task;
 use pocketmine\world\Position;
 use pocketmine\player\Player;
-
 use Farmero\hub\Hub;
 
 class HubTask extends Task
@@ -33,10 +32,8 @@ class HubTask extends Task
             return;
         }
 
-        if ($player->getPosition()->getFloorX() === $this->startposition->getFloorX() and
-            $player->getPosition()->getFloorY() === $this->startposition->getFloorY() and
-            $player->getPosition()->getFloorZ() === $this->startposition->getFloorZ()) {
-            $player->sendTip(Hub::getConfigReplace("cooldown", ["{time}"], [$this->timer]));
+        if ($player->getPosition()->equals($this->startposition)) {
+            $player->sendTip(Hub::getConfigReplace("cooldown", ["{time}"], [(string)$this->timer]));
             $this->timer--;
         } else {
             $player->sendMessage(Hub::getConfigReplace("cancel"));
@@ -47,10 +44,14 @@ class HubTask extends Task
 
         if ($this->timer === 0) {
             $player->getEffects()->remove(VanillaEffects::BLINDNESS());
-            $player->teleport($player->getWorld()->getSafeSpawn());
-            $player->sendTip(Hub::getConfigReplace("teleportation"));
+            $hubLocation = Hub::getInstance()->getHubLocation();
+            if ($hubLocation !== null) {
+                $player->teleport($hubLocation);
+                $player->sendTip(Hub::getConfigReplace("teleportation"));
+            } else {
+                $player->sendMessage(Hub::getConfigReplace("no_hub_set"));
+            }
             $this->getHandler()->cancel();
-            return;
         }
     }
 }
